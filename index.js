@@ -1,6 +1,5 @@
 const express = require("express");
 const app = express();
-const http = require("http");
 
 const port = process.env.PORT || 3000;
 
@@ -8,21 +7,17 @@ app.get("/", (req, res) => {
     res.send("Hello World!");
 });
 
-app.get("/login", (req, res) => {
-    res.send("Login");
-})
+app.get("/sigin", (req, res) => {
+    res.send("Sigin");
+});
 
-http.get('http://localhost:3000/controllers/userController', (res) => {
-  let data = ''
+app.get("/signup", (req, res) => {
+    res.send("Signup");
+});
 
-  res.on('data', (chunk) => {
-    data += chunk
-  })
-
-  res.on('end', () => {
-    console.log(data)
-  })
-})
+app.get("/getuser", (req, res) => {
+    res.send("getuser");
+});
 
 app.listen(port, () => {
     console.info("Aplicação rodando em http://localhost:3000");
